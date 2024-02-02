@@ -1,10 +1,5 @@
 package main
 
-//import ( // Begin import block to include necessary packages.
-//	"reflect" // Import the reflect package for deep equality checks.
-//	"testing" // Import the testing package, providing support for automated testing.
-//)
-
 // import twosum from current project
 import (
 	"reflect"
@@ -28,15 +23,15 @@ func TestTwoSum(t *testing.T) {
 	}
 
 	// Iterate through each test case.
-	for _, tt := range tests {
-		// Use t.Run to execute a subtest for each case. `tt.name` gives the subtest its name.
-		t.Run(tt.name, func(t *testing.T) {
+	for _, tc := range tests {
+		// Use t.Run to execute a subtest for each case. `tc.name` gives the subtest its name.
+		t.Run(tc.name, func(t *testing.T) {
 			// Call the twoSum function with the current test case's inputs.
-			got := TwoSum(tt.nums, tt.target)
+			got := TwoSum(tc.nums, tc.target)
 			// Check if the function's output matches the expected output.
-			if !reflect.DeepEqual(got, tt.want) {
+			if !reflect.DeepEqual(got, tc.want) {
 				// If they don't match, report an error for this test case.
-				t.Errorf("twoSum() = %v, want %v", got, tt.want)
+				t.Errorf("twoSum() = %v, want %v", got, tc.want)
 			}
 		})
 	}
